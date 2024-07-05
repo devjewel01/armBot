@@ -1,0 +1,26 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/jewel/arduinobot_ws/install/smart_arm/lib/python3.10/site-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_utils/local/lib/python3.10/dist-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_remote/local/lib/python3.10/dist-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_py_examples/lib/python3.10/site-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_msgs/local/lib/python3.10/dist-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_firmware/local/lib/python3.10/dist-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_controller/local/lib/python3.10/dist-packages",
+        "/home/jewel/armBot/install/py_examples/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/jewel/arduinobot_ws/install/smart_arm/lib/python3.10/site-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_utils/local/lib/python3.10/dist-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_remote/local/lib/python3.10/dist-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_py_examples/lib/python3.10/site-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_msgs/local/lib/python3.10/dist-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_firmware/local/lib/python3.10/dist-packages",
+        "/home/jewel/arduinobot_ws/install/arduinobot_controller/local/lib/python3.10/dist-packages",
+        "/home/jewel/armBot/install/py_examples/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
