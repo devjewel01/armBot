@@ -3,8 +3,8 @@
 <package format="3">
   <name>armbot_moveit</name>
   <version>0.0.0</version>
-  <description>armbot MoveIt! 2 package</description>
-  <maintainer email="antonio.brandi@outlook.it">Antonio Brandi</maintainer>
+  <description>Armbot MoveIt! 2 package</description>
+  <maintainer email="jewelnath.me@gmail.com">Jewel Nath</maintainer>
   <license>Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

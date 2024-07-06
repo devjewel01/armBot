@@ -13,6 +13,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/AddTwoInts.srv"
   "srv/EulerToQuaternion.srv"
   "srv/QuaternionToEuler.srv"
+  "action/Fibonacci.action"
+  "action/ArmbotTask.action"
 )
 
 ament_package()
