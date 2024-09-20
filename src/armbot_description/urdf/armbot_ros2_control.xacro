@@ -10,6 +10,10 @@
             <hardware>
                 <plugin>gazebo_ros2_control/GazeboSystem</plugin>
             </hardware>
+            <hardware>
+                <plugin>armbot_controller/ArmbotInterface</plugin>
+                <param name="port">/dev/ttyACM0</param>
+            </hardware>
 
             <joint name="joint_7">
                 <param name="mimic">joint_6</param>

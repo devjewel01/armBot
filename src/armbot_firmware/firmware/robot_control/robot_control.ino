@@ -4,18 +4,24 @@
 #define SERVO_BASE_PIN 8
 #define SERVO_SHOULDER_PIN 9
 #define SERVO_ELBOW_PIN 10
-#define SERVO_GRIPPER_PIN 11
+#define SERVO_WRISTE_PITCH_PIN 11
+#define SERVO_WRISTE_ROLL_PIN 12
+#define SERVO_GRIPPER_PIN 7
 
 // Define the start configuration of the joints
 #define BASE_START 90
 #define SHOULDER_START 90
 #define ELBOW_START 90
+#define WRISTE_PITCH_START 90
+#define WRISTE_ROLL_START 90
 #define GRIPPER_START 0
 
 // Register the servo motors of each joint
 Servo base;  
 Servo shoulder;  
 Servo elbow;  
+Servo wriste_pitch;
+Servo wriste_roll;
 Servo gripper; 
 
 uint8_t idx = 0;
@@ -49,6 +55,8 @@ void setup() {
   base.attach(SERVO_BASE_PIN);
   shoulder.attach(SERVO_SHOULDER_PIN);
   elbow.attach(SERVO_ELBOW_PIN);
+  wriste_pitch.attach(SERVO_WRISTE_PITCH_PIN);
+  wriste_roll.attach(SERVO_WRISTE_ROLL_PIN);
   gripper.attach(SERVO_GRIPPER_PIN); 
 
   // Set a common start point for each joint
@@ -56,6 +64,8 @@ void setup() {
   base.write(BASE_START);
   shoulder.write(SHOULDER_START);
   elbow.write(ELBOW_START);
+  wriste_pitch.write(WRISTE_PITCH_START);
+  wriste_roll.write(WRISTE_ROLL_START);
   gripper.write(GRIPPER_START);
 
   // Start the Serial communication with ROS
@@ -86,10 +96,22 @@ void loop() {
       idx = 2;
       val_idx = 0;
     }
+    //wriste_pitch motor 
+    else if(chr == 'w')
+    {
+      idx = 3;
+      val_idx = 0;
+    }
+    //wriste_roll motor 
+    else if(chr == 'r')
+    {
+      idx = 4;
+      val_idx = 0;
+    }
     // gripper motor
     else if(chr == 'g')
     {
-      idx = 3;
+      idx = 5;
       val_idx = 0;
     }
     // Separator
@@ -109,6 +131,14 @@ void loop() {
         reach_goal(elbow, val);
       }
       else if(idx == 3)
+      {
+        reach_goal(wriste_pitch, val);
+      }
+      else if(idx == 4)
+      {
+        reach_goal(wriste_roll, val);
+      }
+      else if(idx == 5)
       {
         reach_goal(gripper, val);
       }

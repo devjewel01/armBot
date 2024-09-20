@@ -23,6 +23,7 @@ setup(
             'simple_publisher = armbot_py_examples.simple_publisher:main',
             'simple_subscriber = armbot_py_examples.simple_subscriber:main',
             'simple_parameter = armbot_py_examples.simple_parameter:main',
+            'simple_moveit = armbot_py_examples.simple_moveit_interface:main',
             'simple_service_server = armbot_py_examples.simple_service_server:main',
             'simple_service_client = armbot_py_examples.simple_service_client:main',
             'simple_action_server = armbot_py_examples.simple_action_server:main',
