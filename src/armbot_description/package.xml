@@ -2,8 +2,8 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>armbot_description</name>
-  <version>0.0.0</version>
-  <description>Armbot Description package</description>
+  <version>0.0.1</version> <!-- Updated version number -->
+  <description>Armbot Description package for ROS2 Jazzy and Gazebo Sim</description>
   <maintainer email="jewelnath.me@gmail.com">Jewel Nath</maintainer>
   <license>Apache 2.0</license>
 
@@ -14,7 +14,7 @@
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>rviz2</exec_depend>
   <exec_depend>xacro</exec_depend>
-  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend> <!-- Replaced gazebo_ros -->
   <exec_depend>ros2launch</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>

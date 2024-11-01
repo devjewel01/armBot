@@ -3,7 +3,7 @@
 
     <!-- Gazebo ros2_control plugin -->
     <gazebo>
-      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
         <robot_param>robot_description</robot_param>
         <robot_param_node>robot_state_publisher</robot_param_node>
         <parameters>$(find armbot_controller)/config/armbot_controllers.yaml</parameters>
