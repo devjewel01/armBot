@@ -7,22 +7,10 @@
 
         <!-- ros2_control Gazebo -->
         <xacro:if value="$(arg is_sim)">
+            <!-- GazeboSimSystem for ROS 2 Jazzy -->
             <hardware>
                 <plugin>gz_ros2_control/GazeboSimSystem</plugin>
             </hardware>
-            <hardware>
-                <plugin>armbot_controller/ArmbotInterface</plugin>
-                <param name="port">/dev/ttyACM0</param>
-            </hardware>
-
-            <joint name="joint_7">
-                <param name="mimic">joint_6</param>
-                <param name="multiplier">-1</param>
-                <command_interface name="position">
-                <param name="min">0.0</param>
-                <param name="max">${PI / 2}</param>
-                </command_interface>
-            </joint>
         </xacro:if>
 
         <!-- ros2_control Real Robot -->
@@ -32,7 +20,6 @@
                 <param name="port">/dev/ttyACM0</param>
             </hardware>
         </xacro:unless>
-
 
         <!-- ros2_control Common Interfaces -->
         <joint name="joint_1">
@@ -75,7 +62,6 @@
             <state_interface name="position" />
         </joint>
 
-
         <joint name="joint_6">
             <command_interface name="position">
                 <param name="min">-${PI / 2}</param>
@@ -84,6 +70,11 @@
             <state_interface name="position" />
         </joint>
 
+        <!-- Mimic joint configuration -->
+        <joint name="joint_7">
+            <param name="mimic">joint_6</param>
+            <param name="multiplier">-1</param>
+        </joint>
 
     </ros2_control>
 
