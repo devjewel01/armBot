@@ -7,16 +7,18 @@ from launch.substitutions import Command, LaunchConfiguration
 from launch.conditions import UnlessCondition
 from ament_index_python.packages import get_package_share_directory
 
-
 def generate_launch_description():
+    # Launch configuration for simulation mode
+    is_sim = LaunchConfiguration("is_sim")
 
-    is_sim = LaunchConfiguration('is_sim')
-    
+    # Declare the argument for simulation mode
     is_sim_arg = DeclareLaunchArgument(
-        'is_sim',
-        default_value='True'
+        "is_sim",
+        default_value="True",
+        description="Flag to indicate if the robot is running in simulation mode"
     )
 
+    # Generate the robot description from the Xacro file
     robot_description = ParameterValue(
         Command(
             [
@@ -26,25 +28,26 @@ def generate_launch_description():
                     "urdf",
                     "armbot.urdf.xacro",
                 ),
-                " is_sim:=False"
+                " is_sim:=", is_sim
             ]
         ),
         value_type=str,
     )
 
+    # Node to publish the robot state
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        parameters=[{"robot_description": robot_description}],
+        parameters=[{"robot_description": robot_description, "use_sim_time": False}],
         condition=UnlessCondition(is_sim),
     )
 
+    # Controller manager node for real robot use
     controller_manager = Node(
         package="controller_manager",
         executable="ros2_control_node",
         parameters=[
-            {"robot_description": robot_description,
-             "use_sim_time": is_sim},
+            {"robot_description": robot_description, "use_sim_time": is_sim},
             os.path.join(
                 get_package_share_directory("armbot_controller"),
                 "config",
@@ -54,14 +57,11 @@ def generate_launch_description():
         condition=UnlessCondition(is_sim),
     )
 
+    # Spawners for controllers
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=[
-            "joint_state_broadcaster",
-            "--controller-manager",
-            "/controller_manager",
-        ],
+        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
     )
 
     arm_controller_spawner = Node(
@@ -76,6 +76,7 @@ def generate_launch_description():
         arguments=["gripper_controller", "--controller-manager", "/controller_manager"],
     )
 
+    # Return the complete launch description
     return LaunchDescription(
         [
             is_sim_arg,
