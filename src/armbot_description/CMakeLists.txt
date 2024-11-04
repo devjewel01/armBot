@@ -3,6 +3,7 @@ project(armbot_description)
 
 find_package(ament_cmake REQUIRED)
 find_package(urdf REQUIRED)
+find_package(xacro REQUIRED)
 
 install(
   DIRECTORY launch meshes urdf rviz

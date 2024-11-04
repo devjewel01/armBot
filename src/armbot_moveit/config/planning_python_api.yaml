@@ -1,0 +1,6 @@
+plan_request_params:
+  planner_id: ompl
+  planning_attempts: 2  # Increase for better solution robustness
+  planning_pipeline: ompl
+  max_velocity_scaling_factor: 0.75  # Slower speed for precise control
+  max_acceleration_scaling_factor: 0.75  # Reduced acceleration for smoother movement

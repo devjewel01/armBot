@@ -8,7 +8,7 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-
+    # Declare the simulation argument
     is_sim = LaunchConfiguration('is_sim')
     
     is_sim_arg = DeclareLaunchArgument(
@@ -16,6 +16,7 @@ def generate_launch_description():
         default_value='True'
     )
 
+    # Build MoveIt configurations for armbot
     moveit_config = (
         MoveItConfigsBuilder("armbot", package_name="armbot_moveit")
         .robot_description(file_path=os.path.join(
@@ -29,6 +30,7 @@ def generate_launch_description():
         .to_moveit_configs()
     )
 
+    # Define the move group node
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
@@ -36,21 +38,21 @@ def generate_launch_description():
         parameters=[moveit_config.to_dict(), 
                     {'use_sim_time': is_sim},
                     {'publish_robot_description_semantic': True}],
-        arguments=["--ros-args", "--log-level", "info"],
+        arguments=["--ros-args", "--log-level", "debug"],
     )
 
-    # RViz
+    # Define the RViz node configuration
     rviz_config = os.path.join(
         get_package_share_directory("armbot_moveit"),
-            "config",
-            "moveit.rviz",
+        "config",
+        "moveit.rviz",
     )
     rviz_node = Node(
         package="rviz2",
         executable="rviz2",
         name="rviz2",
         output="log",
-        arguments=["-d", rviz_config],
+        arguments=["-d", rviz_config, "--ros-args", "--log-level", "debug"],
         parameters=[
             moveit_config.robot_description,
             moveit_config.robot_description_semantic,
@@ -59,10 +61,11 @@ def generate_launch_description():
         ],
     )
 
+    # Return the LaunchDescription including the simulation argument, move group node, and RViz node
     return LaunchDescription(
         [
             is_sim_arg,
-            move_group_node, 
+            move_group_node,
             rviz_node
         ]
     )

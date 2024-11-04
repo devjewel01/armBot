@@ -2,9 +2,9 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>armbot_remote</name>
-  <version>0.0.0</version>
+  <version>0.0.1</version> <!-- Updated version number -->
   <description>The armbot_remote package</description>
-  <maintainer email="jewelnath.me@gmail.com">Jewel Nath</maintainer>
+  <maintainer email="your.email@example.com">Your Name</maintainer> <!-- Update with your details -->
   <license>Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
@@ -13,12 +13,14 @@
   <depend>rclcpp</depend>
   <depend>rclcpp_action</depend>
   <depend>rclcpp_components</depend>
-  <depend>armbot_msgs</depend>
+  <depend>armbot_msgs</depend> <!-- Updated package dependency -->
   <depend>moveit_ros_planning_interface</depend>
   <depend>rclpy</depend>
 
-  <exec_depend>moveit_py</exec_depend>
   <exec_depend>ros2launch</exec_depend>
+  <exec_depend>python3-flask</exec_depend>
+  <exec_depend>moveit_py</exec_depend>
+  <exec_depend>armbot_moveit</exec_depend> <!-- Updated package dependency -->
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
