@@ -8,12 +8,13 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-    # Declare the simulation argument
+    # Declare the argument for simulation mode
     is_sim = LaunchConfiguration('is_sim')
     
     is_sim_arg = DeclareLaunchArgument(
         'is_sim',
-        default_value='True'
+        default_value='True',
+        description='Flag to indicate if the robot is running in simulation mode'
     )
 
     # Build MoveIt configurations for armbot
@@ -23,25 +24,26 @@ def generate_launch_description():
             get_package_share_directory("armbot_description"),
             "urdf",
             "armbot.urdf.xacro"
-            )
-        )
+        ))
         .robot_description_semantic(file_path="config/armbot.srdf")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
         .to_moveit_configs()
     )
 
-    # Define the move group node
+    # Move group node
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict(), 
-                    {'use_sim_time': is_sim},
-                    {'publish_robot_description_semantic': True}],
-        arguments=["--ros-args", "--log-level", "debug"],
+        parameters=[
+            moveit_config.to_dict(),
+            {'use_sim_time': is_sim},
+            {'publish_robot_description_semantic': True}
+        ],
+        arguments=["--ros-args", "--log-level", "info"],
     )
 
-    # Define the RViz node configuration
+    # RViz node configuration
     rviz_config = os.path.join(
         get_package_share_directory("armbot_moveit"),
         "config",
@@ -52,7 +54,7 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="log",
-        arguments=["-d", rviz_config, "--ros-args", "--log-level", "debug"],
+        arguments=["-d", rviz_config],
         parameters=[
             moveit_config.robot_description,
             moveit_config.robot_description_semantic,
@@ -61,11 +63,9 @@ def generate_launch_description():
         ],
     )
 
-    # Return the LaunchDescription including the simulation argument, move group node, and RViz node
-    return LaunchDescription(
-        [
-            is_sim_arg,
-            move_group_node,
-            rviz_node
-        ]
-    )
+    # Return the LaunchDescription
+    return LaunchDescription([
+        is_sim_arg,
+        move_group_node,
+        rviz_node
+    ])

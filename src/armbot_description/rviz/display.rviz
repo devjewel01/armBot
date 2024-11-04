@@ -2,12 +2,11 @@ Panels:
   - Class: rviz_common/Transformation
     Name: Transformation
   - Class: rviz_common/Displays
-    Help Height: 0
     Name: Displays
     Property Tree Widget:
       Expanded: ~
       Splitter Ratio: 0.5
-    Tree Height: 489
+    Tree Height: 500
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -24,13 +23,7 @@ Panels:
       - /2D Pose Estimate1
     Name: Tool Properties
     Splitter Ratio: 0.5
-  - Class: rviz_common/Displays
-    Help Height: 79
-    Name: Displays
-    Property Tree Widget:
-      Expanded: ~
-      Splitter Ratio: 0.5
-    Tree Height: 355
+
 Visualization Manager:
   Class: ""
   Displays:
@@ -41,45 +34,32 @@ Visualization Manager:
         All Enabled: true
         base_link:
           Value: true
-        clawbase:
-          Value: true
-        clawl:
-          Value: true
-        clawr:
+        platform:
           Value: true
         lower_arm:
           Value: true
-        platform:
-          Value: true
         top_arm:
           Value: true
-        world:
-          Value: true
         wrist:
+          Value: true
+        clawbase:
+          Value: true
+        clawr:
+          Value: true
+        clawl:
+          Value: true
+        world:
           Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: false
-      Tree:
-        world:
-          base_link:
-            platform:
-              lower_arm:
-                top_arm:
-                  wrist:
-                    clawbase:
-                      clawl:
-                        {}
-                      clawr:
-                        {}
       Update Interval: 0
       Value: true
     - Alpha: 0.5
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: ""
       Description Source: Topic
       Description Topic:
         Depth: 5
@@ -94,50 +74,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        clawbase:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        clawl:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        clawr:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        lower_arm:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        platform:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        top_arm:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        world:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        wrist:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Mass Properties:
         Inertia: false
         Mass: false
@@ -146,10 +82,10 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
-  Enabled: true
+
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -185,14 +121,11 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: initialpose
     - Class: rviz_default_plugins/Select
-  Transformation:
-    Current:
-      Class: rviz_default_plugins/TF
-  Value: true
+
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 11.772968292236328
+      Distance: 10
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -205,20 +138,19 @@ Visualization Manager:
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
-      Name: Current View
+      Name: Armbot View
       Near Clip Distance: 0.009999999776482582
       Pitch: 0.10539790987968445
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz_default_plugins)
       Yaw: 1.2853856086730957
-    Saved: ~
+
 Window Geometry:
   Displays:
     collapsed: false
   Height: 1041
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000010000000000000176000003a6fc0200000006fb000000100044006900730070006c006100790073010000004700000233000000e800fffffffb0000001c005400720061006e00730066006f0072006d006100740069006f006e000000015a000001d10000009100fffffffb0000000a0056006900650077007301000002800000016d000000c100fffffffb0000001200530065006c0065006300740069006f006e00000002cd0000008e0000006b00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000342000000cd0000006b00fffffffb000000100044006900730070006c00610079007300000002e20000012d000000e800ffffff0000039c000003a600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Tool Properties:

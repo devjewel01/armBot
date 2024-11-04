@@ -1,10 +1,10 @@
 <library path="armbot_controller">
-    <class name="armbot_controller/ArmbotInterface"
-      type="armbot_controller::ArmbotInterface"
-      base_class_type="hardware_interface::SystemInterface"
-    >
-      <description>
-        Armbot Hardware Interface
-      </description>
-    </class>
-  </library>
+  <class name="armbot_controller/ArmbotInterface"
+    type="armbot_controller::ArmbotInterface"
+    base_class_type="hardware_interface::SystemInterface"
+  >
+    <description>
+      Armbot Hardware Interface
+    </description>
+  </class>
+</library>

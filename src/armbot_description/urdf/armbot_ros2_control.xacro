@@ -1,74 +1,47 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="armbot">
 
+    <!-- ROS 2 Control System -->
     <ros2_control name="RobotSystem" type="system">
-
+        <!-- Define common properties -->
         <xacro:property name="PI" value="3.14159265359" />
 
-        <!-- ros2_control Gazebo -->
-        <xacro:if value="$(arg is_sim)">
-            <!-- GazeboSimSystem for ROS 2 Jazzy -->
-            <hardware>
-                <plugin>gz_ros2_control/GazeboSimSystem</plugin>
-            </hardware>
-        </xacro:if>
+        <!-- Hardware interface setup -->
+        <xacro:macro name="hardware_interface" params="is_sim plugin_name port">
+            <xacro:if value="${is_sim}">
+                <hardware>
+                    <plugin>${plugin_name}</plugin>
+                </hardware>
+            </xacro:if>
+            <xacro:unless value="${is_sim}">
+                <hardware>
+                    <plugin>armbot_controller/ArmbotInterface</plugin>
+                    <param name="port">${port}</param>
+                </hardware>
+            </xacro:unless>
+        </xacro:macro>
 
-        <!-- ros2_control Real Robot -->
-        <xacro:unless value="$(arg is_sim)">
-            <hardware>
-                <plugin>armbot_controller/ArmbotInterface</plugin>
-                <param name="port">/dev/ttyACM0</param>
-            </hardware>
-        </xacro:unless>
+        <!-- Invoke hardware interface for simulation or real robot -->
+        <xacro:hardware_interface is_sim="$(arg is_sim)" plugin_name="gz_ros2_control/GazeboSimSystem" port="/dev/ttyACM0" />
 
-        <!-- ros2_control Common Interfaces -->
-        <joint name="joint_1">
-            <command_interface name="position">
-                <param name="min">-${PI / 2}</param>
-                <param name="max">${PI / 2}</param>
-            </command_interface>
-            <state_interface name="position" />
-        </joint>
+        <!-- Common joint interface macro -->
+        <xacro:macro name="joint_interface" params="joint_name min_angle max_angle">
+            <joint name="${joint_name}">
+                <command_interface name="position">
+                    <param name="min">${min_angle}</param>
+                    <param name="max">${max_angle}</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+        </xacro:macro>
 
-        <joint name="joint_2">
-            <command_interface name="position">
-                <param name="min">-${PI / 2}</param>
-                <param name="max">${PI / 2}</param>
-            </command_interface>
-            <state_interface name="position" />
-        </joint>
-
-        <joint name="joint_3">
-            <command_interface name="position">
-                <param name="min">-${PI / 2}</param>
-                <param name="max">${PI / 2}</param>
-            </command_interface>
-            <state_interface name="position" />
-        </joint>
-
-        <joint name="joint_4">
-            <command_interface name="position">
-                <param name="min">-${PI / 2}</param>
-                <param name="max">${PI / 2}</param>
-            </command_interface>
-            <state_interface name="position" />
-        </joint>
-
-        <joint name="joint_5">
-            <command_interface name="position">
-                <param name="min">-${PI / 2}</param>
-                <param name="max">${PI / 2}</param>
-            </command_interface>
-            <state_interface name="position" />
-        </joint>
-
-        <joint name="joint_6">
-            <command_interface name="position">
-                <param name="min">-${PI / 2}</param>
-                <param name="max">0.0</param>
-            </command_interface>
-            <state_interface name="position" />
-        </joint>
+        <!-- Define joint interfaces -->
+        <xacro:joint_interface joint_name="joint_1" min_angle="-${PI / 2}" max_angle="${PI / 2}" />
+        <xacro:joint_interface joint_name="joint_2" min_angle="-${PI / 2}" max_angle="${PI / 2}" />
+        <xacro:joint_interface joint_name="joint_3" min_angle="-${PI / 2}" max_angle="${PI / 2}" />
+        <xacro:joint_interface joint_name="joint_4" min_angle="-${PI / 2}" max_angle="${PI / 2}" />
+        <xacro:joint_interface joint_name="joint_5" min_angle="-${PI / 2}" max_angle="${PI / 2}" />
+        <xacro:joint_interface joint_name="joint_6" min_angle="-${PI / 2}" max_angle="0.0" />
 
         <!-- Mimic joint configuration -->
         <joint name="joint_7">

@@ -44,7 +44,8 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0.01" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/base_cylinder.stl" scale="0.0001 0.0001 0.0001" />
+                <mesh filename="package://armbot_description/meshes/base_cylinder.stl"
+                    scale="0.0001 0.0001 0.0001" />
             </geometry>
             <material name="black">
                 <color rgba="0 0 0 1" />
@@ -53,7 +54,8 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0.01" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/base_cylinder.stl" scale="0.0001 0.0001 0.0001" />
+                <mesh filename="package://armbot_description/meshes/base_cylinder.stl"
+                    scale="0.0001 0.0001 0.0001" />
             </geometry>
         </collision>
     </link>
@@ -63,14 +65,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/top_plate.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/top_plate.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
             <material name="black" />
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/top_plate.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/top_plate.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -80,14 +84,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/lower_arm.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/lower_arm.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
             <material name="black" />
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/lower_arm.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/lower_arm.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -97,14 +103,16 @@
         <visual>
             <origin rpy="0 1.59 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/top_arm.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/top_arm.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
             <material name="black" />
         </visual>
         <collision>
             <origin rpy="0 1.59 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/top_arm.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/top_arm.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -114,14 +122,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/wrist.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/wrist.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
             <material name="black" />
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/wrist.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/wrist.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -131,7 +141,8 @@
         <visual>
             <origin rpy="0 3.18 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/clawbase.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/clawbase.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
             <material name="white">
                 <color rgba="1 1 1 1" />
@@ -140,7 +151,8 @@
         <collision>
             <origin rpy="0 3.18 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/clawbase.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/clawbase.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -150,14 +162,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/clawr.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/clawr.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
             <material name="white" />
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/clawr.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/clawr.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -167,33 +181,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/clawl.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://armbot_description/meshes/clawl.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
             <material name="white" />
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://armbot_description/meshes/clawl.stl" scale="0.001 0.001 0.001" />
-            </geometry>
-        </collision>
-    </link>
-
-    <link name="camera">
-        <xacro:default_inertial mass="0.05" />
-        <visual>
-            <origin rpy="-1.57 0 -1.57" xyz="0.1 0.2 0.15" />
-            <geometry>
-                <mesh filename="package://armbot_description/meshes/pi_camera.STL" scale="0.01 0.01 0.01" />
-            </geometry>
-            <material name="gray">
-                <color rgba="0.5 0.5 0.5 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin rpy="-1.57 0 -1.57" xyz="0.1 0.2 0.15" />
-            <geometry>
-                <mesh filename="package://armbot_description/meshes/pi_camera.STL" scale="0.01 0.01 0.01" />
+                <mesh filename="package://armbot_description/meshes/clawl.stl"
+                    scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -260,12 +257,6 @@
         <child link="clawl" />
         <origin rpy="0 0 0.22" xyz="-0.16 0.30 0" />
         <mimic joint="joint_6" multiplier="-1" offset="0" />
-    </joint>
-
-    <joint name="camera_joint" type="fixed">
-        <parent link="base_link" />
-        <child link="camera" />
-        <origin xyz="0 0.45 0.2" rpy="0 -0.5 1.57" />
     </joint>
 
     <!-- Transmissions -->
