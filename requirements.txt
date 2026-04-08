@@ -1,0 +1,10 @@
+# Computer vision and image processing
+opencv-python==4.10.0.84
+numpy==2.1.3
+
+# Serial communication with Arduino
+pyserial==3.5
+
+# Optional: Development Tools (commented out, uncomment if needed)
+# mypy>=1.0.0  # for type checking
+# pylint>=2.17.0  # for code quality checks
